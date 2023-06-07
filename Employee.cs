@@ -1,4 +1,4 @@
-﻿// Model for tblEmployee
+﻿
 public class Employee
 {
     public int EmployeeId { get; set; }
@@ -7,7 +7,7 @@ public class Employee
     public decimal EmployeeSalary { get; set; }
 }
 
-// Model for tblEmployeeAttendance
+
 public class EmployeeAttendance
 {
     public int EmployeeId { get; set; }
@@ -21,11 +21,10 @@ public class EmployeeAttendance
 
 
 
-// PUT: api/employees/{employeeId}/employeecode
 [HttpPut("api/employees/{employeeId}/employeecode")]
 public IActionResult UpdateEmployeeCode(int employeeId, [FromBody] string employeeCode)
 {
-    // Check if the employee code already exists
+
     if (tblemplyee.Employees.Any(e => e.EmployeeCode == employeeCode))
     {
         return BadRequest("Employee code already exists.");
@@ -47,7 +46,6 @@ public IActionResult UpdateEmployeeCode(int employeeId, [FromBody] string employ
 
 
 
-// GET: api/employees/sort/salary
 [HttpGet("api/employees/sort/salary")]
 public IActionResult GetAllEmployeesBySalary()
 {
@@ -58,7 +56,6 @@ public IActionResult GetAllEmployeesBySalary()
 
 
 
-// GET: api/employees/absent
 [HttpGet("api/employees/absent")]
 public IActionResult GetEmployeesWithAbsentDays()
 {
@@ -72,7 +69,7 @@ public IActionResult GetEmployeesWithAbsentDays()
 
 
 
-// GET: api/employees/attendance
+
 [HttpGet("api/employees/attendance")]
 public IActionResult GetMonthlyAttendanceReport()
 {
